@@ -5,6 +5,7 @@ React-Generate-Component - A CLI tool to quickly generate a new React component.
 ```
 go get github.com/willdavsmith/rgc
 ```
+
 ## Manual Installation
 1. Clone the repository.
 ```
@@ -29,7 +30,13 @@ $ rgc
 
 ## Examples
 ```bash
-rgc -c ComponentName -d components
+$ rgc -c NewComponent
+Created C:\Users\Will\react-project\NewComponent
+Created C:\Users\Will\react-project\NewComponent\NewComponent.tsx, wrote 57 bytes
+Created C:\Users\Will\react-project\NewComponent\index.ts, wrote 41 bytes
 
-
+$ rgc -c NewComponent -d components
+Created C:\Users\Will\react-project\components\NewComponent
+Created C:\Users\Will\react-project\components\NewComponent\NewComponent.tsx, wrote 57 bytes
+Created C:\Users\Will\react-project\components\NewComponent\index.ts, wrote 41 bytes
 ```
