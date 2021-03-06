@@ -27,10 +27,14 @@ func main() {
 
 	rootPath := filepath.Join(*destinationPtr, *componentNamePtr)
 	if !(*dryRunPtr) {
-		err := os.Mkdir(rootPath, 0755)
+		err := os.MkdirAll(rootPath, 0755)
 		check(err)
 	}
-	fmt.Printf("Created %s\n", rootPath)
+
+	absoluteRootPath, err := filepath.Abs(rootPath)
+	check(err)
+
+	fmt.Printf("Created %s\n", absoluteRootPath)
 
 	componentPath := filepath.Join(rootPath, fmt.Sprintf("%s.tsx", *componentNamePtr))
 	componentTemplate := []byte(fmt.Sprintf(`export default function %s() {
@@ -44,7 +48,11 @@ func main() {
 		err := ioutil.WriteFile(componentPath, componentTemplate, 0644)
 		check(err)
 	}
-	fmt.Printf("Created %s, wrote %d bytes\n", componentPath, len(componentTemplate))
+
+	absoluteComponentPath, err := filepath.Abs(componentPath)
+	check(err)
+
+	fmt.Printf("Created %s, wrote %d bytes\n", absoluteComponentPath, len(componentTemplate))
 
 	indexPath := filepath.Join(rootPath, "index.ts")
 	indexTemplate := []byte(fmt.Sprintf(`export { default } from './%s'
@@ -54,5 +62,9 @@ func main() {
 		err := ioutil.WriteFile(indexPath, indexTemplate, 0644)
 		check(err)
 	}
-	fmt.Printf("Created %s, wrote %d bytes\n", indexPath, len(indexTemplate))
+
+	absoluteIndexPath, err := filepath.Abs(indexPath)
+	check(err)
+
+	fmt.Printf("Created %s, wrote %d bytes\n", absoluteIndexPath, len(indexTemplate))
 }
