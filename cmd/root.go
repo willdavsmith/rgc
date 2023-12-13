@@ -149,7 +149,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&component, "component", "c", "", "component name (required)")
 	rootCmd.PersistentFlags().StringVarP(&directory, "directory", "d", "", "component directory")
 	rootCmd.PersistentFlags().StringVarP(&indexFile, "index", "i", "", "index file (default is {directory}/index.{ts|js})")
-	rootCmd.PersistentFlags().BoolVar(&useJavascript, "use-javascrpt", false, "use javascript instead of typescript (default is false)")
+	rootCmd.PersistentFlags().BoolVar(&useJavascript, "use-javascript", false, "use javascript instead of typescript (default is false)")
 }
 
 func initConfig() {
