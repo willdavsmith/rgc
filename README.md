@@ -19,7 +19,7 @@ Flags:
   -d, --directory string   component directory
   -h, --help               help for rgc
   -i, --index string       index file (default is {directory}/index.{ts|js})
-      --use-javascrpt      use javascript instead of typescript (default is false)
+      --use-javascript      use javascript instead of typescript (default is false)
   -v, --version            version for rgc
   -h, --help               show this page
 ```
